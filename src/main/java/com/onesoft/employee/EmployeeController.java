@@ -23,8 +23,8 @@ import com.onesoft.employee.exception.EmployeeNotFoundBySalaryException;
 public class EmployeeController {
 	@Autowired
 	EmployeeService empser;
-	
-	static Logger log=Logger.getLogger(EmployeeController.class);
+
+	static Logger log = Logger.getLogger(EmployeeController.class);
 
 	@PostMapping(value = "/add")
 	public String addEmployee(@RequestBody Employee emp) {
@@ -33,7 +33,7 @@ public class EmployeeController {
 		return empser.addEmployee(emp);
 	}
 
-	// By using GetMapping
+// By using GetMapping
 
 	@GetMapping(value = "/get/{id}")
 	public Employee getEmployee(@PathVariable int id) {
@@ -47,14 +47,14 @@ public class EmployeeController {
 		return empser.updateEmployee(id);
 	}
 
-	// By using DeleteMapping
+// By using DeleteMapping
 
 	@DeleteMapping(value = "/delete/{id}")
 	public String addEmployee(@PathVariable int id) {
 		return empser.addEmployee(id);
 	}
 
-	// by using List of Employee
+// by using List of Employee
 
 	@PostMapping(value = "/list")
 	public String listEmployee(@RequestBody List<Employee> emp) {
@@ -63,7 +63,7 @@ public class EmployeeController {
 		return empser.listEmployee(emp);
 	}
 
-	// By using List of all Employee
+// By using List of all Employee
 
 	@GetMapping(value = "/listget")
 	public List<Employee> listgetEmployee() {
@@ -86,81 +86,80 @@ public class EmployeeController {
 	public List<String> getBySalaryName(@PathVariable int salary) {
 		return empser.getBySalaryName(salary);
 	}
-	
-	
+
 	@GetMapping(value = "/getEmpSalaryCount/{salary}")
 	public long getBySalaryCount(@PathVariable int salary) {
 		return empser.getBySalaryCount(salary);
 	}
-	
-	@GetMapping(value="/getEmpMaxSalary")
+
+	@GetMapping(value = "/getEmpMaxSalary")
 	public int getEmpMaxSalary() {
 		return empser.getEmpMaxSalary();
 	}
-	
-	@GetMapping(value="/getEmpMaxSalaryList")
+
+	@GetMapping(value = "/getEmpMaxSalaryList")
 	public Employee getEmpMaxSalaryList() {
 		return empser.getEmpMaxSalaryList();
 	}
-	
-	@GetMapping(value="/getEmpMinAgeList")
+
+	@GetMapping(value = "/getEmpMinAgeList")
 	public Employee getEmpMinAgeList() {
 		return empser.getEmpMinAgeList();
 	}
-	
-	@GetMapping(value="/getEmpAgeLimit/{age1}/{age2}")
-	public List<Integer> getEmpAgeLimit(@PathVariable int age1,@PathVariable int age2) {
-		return empser.getEmpAgelimit(age1,age2);
+
+	@GetMapping(value = "/getEmpAgeLimit/{age1}/{age2}")
+	public List<Integer> getEmpAgeLimit(@PathVariable int age1, @PathVariable int age2) {
+		return empser.getEmpAgelimit(age1, age2);
 	}
-	
-	@GetMapping(value="/getEmpSalaryLimit/{salary1}/{salary2}")
-	public List<String> getEmpSalaryLimit(@PathVariable int salary1,@PathVariable int salary2) {
-		return empser.getEmpSalarylimit(salary1,salary2);
+
+	@GetMapping(value = "/getEmpSalaryLimit/{salary1}/{salary2}")
+	public List<String> getEmpSalaryLimit(@PathVariable int salary1, @PathVariable int salary2) {
+		return empser.getEmpSalarylimit(salary1, salary2);
 	}
-	
-	@GetMapping(value="/getEmpNameLimit/{name}")
+
+	@GetMapping(value = "/getEmpNameLimit/{name}")
 	public List<Integer> getEmpNameId(@PathVariable String name) {
 		return empser.getEmpNameId(name);
 	}
-	
-	@GetMapping(value="/getEmpIncrement/{age}")
+
+	@GetMapping(value = "/getEmpIncrement/{age}")
 	public List<Employee> getEmpIncrement(@PathVariable int age) {
 		return empser.getEmpIncrement(age);
 	}
-	
-	@GetMapping(value="/getBySalary1/{sal1}/{sal2}")
-	public List<Employee> getBySalary1(@PathVariable int sal1,@PathVariable int sal2) {
-		return empser.getBySalary1(sal1,sal2);
+
+	@GetMapping(value = "/getBySalary1/{sal1}/{sal2}")
+	public List<Employee> getBySalary1(@PathVariable int sal1, @PathVariable int sal2) {
+		return empser.getBySalary1(sal1, sal2);
 	}
-	
+
 // By using exception for all variables	
-	
-	@GetMapping(value="/ExceptionId/{id}")
+
+	@GetMapping(value = "/ExceptionId/{id}")
 	public Employee getById(@PathVariable int id) throws EmployeeNotFoundByIdException {
 		return empser.getById(id);
 	}
-	
-	@GetMapping(value="/ExceptionName/{name}")
+
+	@GetMapping(value = "/ExceptionName/{name}")
 	public List<Employee> getByName(@PathVariable String name) throws EmployeeNotFoundByNameException {
 		return empser.getByName(name);
 	}
-	
-	@GetMapping(value="/ExceptionGender/{gender}")
+
+	@GetMapping(value = "/ExceptionGender/{gender}")
 	public List<Employee> getByGender1(@PathVariable String gender) throws EmployeeNotFoundByGenderException {
 		return empser.getByGender1(gender);
 	}
-	
-	@GetMapping(value="/ExceptionAge/{age}")
+
+	@GetMapping(value = "/ExceptionAge/{age}")
 	public List<Employee> getByAge(@PathVariable int age) throws EmployeeNotFoundByAgeException {
 		return empser.getByAge(age);
 	}
-	
-	@GetMapping(value="/ExceptionSalary/{salary}")
+
+	@GetMapping(value = "/ExceptionSalary/{salary}")
 	public List<Employee> getBySalary1(@PathVariable int salary) throws EmployeeNotFoundBySalaryException {
 		return empser.getBySalary1(salary);
 	}
-	
-	@PostMapping(value="/addByAgeLimits")
+
+	@PostMapping(value = "/addByAgeLimits")
 	public String addByAgeLimits(@RequestBody Employee emps) throws EmployeeNotFoundByAgeException {
 		return empser.addByAgeLimits(emps);
 	}
