@@ -29,7 +29,7 @@ public class EmployeeController {
 	@PostMapping(value = "/add")
 	public String addEmployee(@RequestBody Employee emp) {
 		PropertyConfigurator.configure("log4j.properties");
-		log.info(emp);
+		log.info("hgsstsrysrsrssyrsyjstsatsha"+emp);
 		return empser.addEmployee(emp);
 	}
 
